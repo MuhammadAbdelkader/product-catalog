@@ -51,7 +51,7 @@ src/app/
 │       ├── products/          # Product listing page
 │       ├── product-details/   # Detailed view of a single product
 │       ├── favorites/         # Favorites list
-│       ├── notfound/          # 404 page
+│       ├── not-found/         # 404 page
 │       ├── product-card/      # Reusable product card
 │       └── product-reviews/   # Product reviews section
 ├── directives/
