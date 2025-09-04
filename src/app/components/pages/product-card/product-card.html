@@ -1,0 +1,54 @@
+<div class="card shadow-sm product-card h-100" (click)="onCardClick()">
+  <!-- Product Image -->
+  <div class="card-img-container">
+    <img [src]="product.thumbnail" [alt]="product.title" class="product-img img-fluid">
+
+    <!-- Discount Badge -->
+    @if (product.discountPercentage > 0) {
+      <span class="badge bg-danger discount-badge">-{{ product.discountPercentage }}% OFF</span>
+    }
+
+    <!-- Rating Badge -->
+    <div class="rating-badge">
+      <span class="rating-number">{{ product.rating | number:'1.1-1' }}</span>
+      <i class="fas fa-star rating-star"></i>
+    </div>
+  </div>
+
+  <!-- Product Info -->
+  <div class="card-body d-flex flex-column">
+    <h6 class="card-title mb-2">{{ product.title }}</h6>
+
+    <!-- Price Section -->
+    <div class="mb-3 d-flex align-items-center gap-2">
+      <span class="discounted-price fw-bold text-success">
+        ${{ calculateDiscountedPrice() | number:'1.2-2' }}
+      </span>
+
+      @if (product.discountPercentage > 0) {
+        <span class="original-price text-muted text-decoration-line-through">
+          ${{ product.price | number:'1.2-2' }}
+        </span>
+        @if (calculateSavedAmount() > 0) {
+          <span class="badge bg-success ms-2">Save ${{ calculateSavedAmount() }}</span>
+        }
+      }
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-auto d-flex gap-2">
+      <button type="button"
+              class="btn btn-outline-success flex-grow-1 d-flex align-items-center justify-content-center favorite-btn"
+              (click)="onToggleFavorite($event)"
+              [class.btn-success]="isFavorite"
+              [class.text-white]="isFavorite">
+        <i class="fas fa-heart me-2"></i>
+        {{ isFavorite ? 'Favorited' : 'Favorite' }}
+      </button>
+
+      <button type="button" class="btn btn-outline-primary cart-btn" (click)="onAddToCart($event)">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container py-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">
+        <i class="fas fa-heart text-danger me-2"></i>
+        My Favorites
+      </h2>
+      <p class="text-muted">Your saved products</p>
+    </div>
+  </div>
+
+  @if (favorites.length === 0) {
+    <div class="text-center py-5">
+      <div class="mb-4">
+        <i class="fas fa-heart-broken text-muted" style="font-size: 4rem;"></i>
+      </div>
+      <h4 class="text-muted mb-3">No favorites yet</h4>
+      <p class="text-muted mb-4">Start exploring products and add them to your favorites!</p>
+      <a routerLink="/products" class="btn btn-primary">
+        <i class="fas fa-shopping-bag me-2"></i>
+        Browse Products
+      </a>
+    </div>
+  } @else {
+    <div class="row justify-content-start">
+      <div class="col-12 mb-3">
+        <div class="alert alert-info d-flex align-items-center">
+          <i class="fas fa-info-circle me-2"></i>
+          You have {{ favorites.length }} favorite {{ favorites.length === 1 ? 'product' : 'products' }}
+        </div>
+      </div>
+
+      @for (product of favorites; track product.id) {
+        <div class="col-auto mb-4 d-flex justify-content-center">
+          <app-product-card
+            [product]="product"
+            [isFavorite]="true"
+            (toggleFavorite)="toggleFavorite($event)">
+          </app-product-card>
+        </div>
+      }
+    </div>
+  }
+</div>

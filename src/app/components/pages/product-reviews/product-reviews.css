@@ -1,0 +1,10 @@
+.rating { font-size: 1.2rem; display: flex; align-items: center; }
+.filled-star { color: #ffc107; margin-right: 2px; }
+.half-star   { color: #ffb400; margin-right: 2px; }
+.empty-star  { color: #dcdcdc; margin-right: 2px; }
+.rating-number { font-size: .9rem; font-weight: 600; color: #444; }
+
+@media (max-width: 576px) {
+  .rating { font-size: 1rem; }
+  .rating-number { font-size: .85rem; }
+}
