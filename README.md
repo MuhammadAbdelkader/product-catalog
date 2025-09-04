@@ -3,7 +3,7 @@
 A modern, responsive **Angular 20** product catalog application featuring **product browsing**, **favorites management**, and **detailed product views**.
 
 🔗 **Live Demo**: [https://product-catalog-alpha-ruby.vercel.app/](https://product-catalog-alpha-ruby.vercel.app/)  
-👤 **Author**: [Muhammad Abdelkader](https://github.com/MuhammadAbdelkader/)
+👨‍💻 **Author**: [Muhammad Abdelkader](https://github.com/MuhammadAbdelkader/)
 
 ---
 
